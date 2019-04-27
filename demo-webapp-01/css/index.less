@@ -1,0 +1,255 @@
+@import "reset";
+@import "swiper";
+@import (reference) "common";
+
+
+
+html{
+  font-size:100px;
+}
+
+html, body{
+  background: #F4F4F4;
+}
+
+.mainBox{
+  margin: 0 auto;
+  max-width: 750px;
+  height: 100%;
+}
+/* HEADER*/
+.headerBox{
+  /*BASE*/
+  .baseBox{
+    @H:1rem;
+    padding: 0 .2rem;
+    height: @H;
+    background: @blue;
+
+    h1{
+      float: left;
+      width: .8rem;
+      height: @H;
+      line-height: @H;
+      font-size: 0;
+
+      a{
+        color: @white;
+        font-size: .44rem;
+      }
+    }
+
+    .menu,.person,.weather{
+      float: right;
+      width: .44rem;
+      height: @H;
+      color: @white;
+      font-size: .44rem;
+      line-height: @H;
+      margin-left: .2rem;
+    }
+
+  }
+  /*NAV*/
+  .navBox{
+    padding:0;
+    height: 0rem;
+    overflow: hidden;
+    .transition();
+
+    a{
+      float: left;
+      width: 16%;
+      height: .64rem;
+      line-height: .64rem;
+      text-align: center;
+      color: @gray;
+      font-size: .32rem;
+      &:nth-of-type(6n+1){
+        margin-left: 2%;
+      }
+    }
+  }
+}
+/*BANNER*/
+.bannerBox{
+  display: none;
+  height: 3.4rem;
+  position: relative;
+  .swiper-wrapper, .swiper-slide{
+    height: 100%;
+  }
+
+  .swiper-slide{
+    position: relative;
+    background: #ccc;
+
+    a{
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      img{
+        display: block;
+        width: 100%;
+      }
+
+      p{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+        width: 100%;
+        height: .6rem;
+        line-height: .6rem;
+        text-indent: .2rem;
+
+        color: @white;
+        font-size: .28rem;
+        background: rgba(0,0,0,.5);
+      }
+    }
+  }
+
+  .swiper-pagination{
+    position: absolute;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 1rem;
+    height: .6rem;
+    line-height: .6rem;
+    font-size: .28rem;
+    color: rgba(255,255,255,.5);
+    text-align: center;
+    span{
+      &:nth-of-type(1){
+        color: @white;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/*LIVE*/
+.liveBox{
+  @H: .8rem;
+  position: relative;
+  margin: .16rem 0;
+  height: @H;
+  background: #fff;
+
+  .tag{
+    width: 1rem;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    
+    &:after{
+      display: block;
+      content: '电影';
+      .center(0.74, .4);
+      color: @white;
+      font-size: .3rem;
+      background: #FA4E46;
+      width: .74rem;
+      height: .4rem;
+      line-height: .4rem;
+      text-align: center;
+    }
+  }
+
+  .liveCon{
+    height: @H;
+    margin-left: 1rem;
+    .swiper-slide{
+      height: @H;
+      line-height: @H;
+
+      a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-size: .28rem;
+        color: @gray;
+        .subText;
+      }
+    }
+  }
+}
+
+/*NEWS*/
+.newsBox{
+  padding: 0 .2rem;
+  background: #fff;
+
+  .newsGroup{
+    li{
+      padding: .2rem 0;
+      border-bottom: 0.02rem solid #ddd;
+      a{
+        display: block;
+        position: relative;
+        font-size: .28rem;
+        height: 1.34rem;
+        .news-img{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 2rem;
+          height: 1.34rem;
+          background: #ccc;
+          img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            .transition;
+          }
+        }
+
+        .news-con{
+          margin-left: 2.2rem;
+          height: 100%;
+          position: relative;
+          h3{
+            height: .96rem;
+            font-size: .32rem;
+            line-height: unit(.96 / 2, rem);
+            color: @gray;
+            font-weight: normal;
+          }
+          span{
+            display: block;
+            height: .32rem;
+            line-height: .32rem;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+          }
+        }
+
+      }
+      a.news-box{
+        height: 2.34rem;
+        h3.news-tit{
+          font-size: .32rem;
+          color: @gray;
+        }
+
+        .imgBox{
+          margin-top: .2rem;
+          display: flex;
+          justify-content: space-between;
+          img{
+            display: block;
+            width: 32%;
+            height: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}
